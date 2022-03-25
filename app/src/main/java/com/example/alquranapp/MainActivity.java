@@ -5,10 +5,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import com.example.alquranapp.activities.SurahDetailsActivity;
 import com.example.alquranapp.adapter.SurahAdapter;
+import com.example.alquranapp.common.common;
+import com.example.alquranapp.listener.SurahListener;
 import com.example.alquranapp.model.Surah;
 import com.example.alquranapp.response.SurahResponse;
 import com.example.alquranapp.viewmodel.SurahViewModel;
@@ -16,7 +20,7 @@ import com.example.alquranapp.viewmodel.SurahViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SurahListener {
 
     private RecyclerView recyclerView;
     private SurahAdapter surahAdapter;
@@ -59,11 +63,23 @@ public class MainActivity extends AppCompatActivity {
 
 
             if(list.size() != 0){
-                surahAdapter = new SurahAdapter(this, list);
+                surahAdapter = new SurahAdapter(this, list,this::onSurahListener);
                 recyclerView.setAdapter(surahAdapter);
                 surahAdapter.notifyDataSetChanged();
             }
 
         });
+    }
+
+    @Override
+    public void onSurahListener(int position) {
+        Intent intent = new Intent(MainActivity.this, SurahDetailsActivity.class);
+        intent.putExtra(common.SURAH_NO,list.get(position).getNumber());
+        intent.putExtra(common.SURAH_NAME,list.get(position).getName());
+        intent.putExtra(common.SURAH_TOTAL_AYAH,list.get(position).getNumberOfAyahs());
+        intent.putExtra(common.SURAH_TYPE,list.get(position).getRevelationType());
+        intent.putExtra(common.SURAH_TRANSLATION,list.get(position).getEnglishNameTranslation());
+        startActivity(intent);
+
     }
 }

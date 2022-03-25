@@ -19,8 +19,5 @@ public class SurahViewModel extends ViewModel {
         return surahRepo.getSurah();
     }
 
-//    public void loadIssues(String user, String repo){
-//        SurahResponse response = SurahRepo.getIssues(user, repo).getValue();
-//        mApiResponse.setValue(response);
-//    }
+
 }

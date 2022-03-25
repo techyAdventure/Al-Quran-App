@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/bg_circle.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_search_24.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_settings.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/search_bg.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_layout.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_surah_details.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_detail_layout.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_layout.xml" value="0.22743682310469315" />
       </map>
     </option>
   </component>

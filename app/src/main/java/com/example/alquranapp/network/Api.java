@@ -16,5 +16,16 @@ public class Api {
         }
         return instance;
     }
+    public static Retrofit getInstance(){
+//
+        if(instance!= null){
+            instance = null;
+        }
+        instance = new Retrofit.Builder().baseUrl("https://quranenc.com/api/translation/").
+                addConverterFactory(GsonConverterFactory.create()).build();
+
+        return instance;
+    }
 
 }
+// http://api.alquran.cloud/v1/

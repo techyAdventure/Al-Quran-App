@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.alquranapp.R;
+import com.example.alquranapp.listener.SurahListener;
 import com.example.alquranapp.model.Surah;
 
 import java.util.List;
@@ -18,10 +19,12 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.ViewHolder> 
 
     private Context context;
     private List<Surah>list;
+    private SurahListener surahListener;
 
-    public SurahAdapter(Context context, List<Surah> list) {
+    public SurahAdapter(Context context, List<Surah> list, SurahListener surahListener) {
         this.context = context;
         this.list = list;
+        this.surahListener = surahListener;
     }
 
     @NonNull
@@ -30,7 +33,7 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.ViewHolder> 
 
         View view = LayoutInflater.from(context).inflate(R.layout.surah_layout,parent,false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view,surahListener);
     }
 
     @Override
@@ -52,15 +55,23 @@ public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView surahNo, arabicName, englishName, totalAya;
+        private SurahListener surahListener;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, SurahListener surahListener) {
             super(itemView);
 
             surahNo = itemView.findViewById(R.id.surah_number);
             arabicName = itemView.findViewById(R.id.arabic_name);
             englishName = itemView.findViewById(R.id.english_name);
             totalAya = itemView.findViewById(R.id.total_ayat);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    surahListener.onSurahListener(getAdapterPosition());
+                }
+            });
 
         }
     }

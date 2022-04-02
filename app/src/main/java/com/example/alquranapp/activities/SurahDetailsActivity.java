@@ -7,6 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.alquranapp.R;
@@ -30,6 +34,8 @@ public class SurahDetailsActivity extends AppCompatActivity {
     private SurahDetailAdapter surahDetailAdapter;
     private SurahDetailViewModel surahDetailViewModel;
     private String eng = "english_rwwad";
+    private EditText search;
+    private ImageView settings;
 
 
 
@@ -39,10 +45,7 @@ public class SurahDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surah_details);
 
-        surahName = findViewById(R.id.surah_name);
-        surahType = findViewById(R.id.type);
-        surahTranslation = findViewById(R.id.translation);
-        recyclerView = findViewById(R.id.surah_detail_recyclerView);
+        init();
         no = getIntent().getIntExtra(common.SURAH_NO,0);
         surahName.setText(getIntent().getStringExtra(common.SURAH_NAME));
 
@@ -58,7 +61,34 @@ public class SurahDetailsActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
         SurahTranslation(eng,no);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+    }
+
+
+
+    private void init(){
+        surahName = findViewById(R.id.surah_name);
+        surahType = findViewById(R.id.type);
+        surahTranslation = findViewById(R.id.translation);
+        recyclerView = findViewById(R.id.surah_detail_recyclerView);
+        search = findViewById(R.id.search);
+        settings = findViewById(R.id.settings);
     }
 
     private void SurahTranslation(String lan, int id){
@@ -93,5 +123,16 @@ public class SurahDetailsActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void filter(String id) {
+
+        ArrayList<SurahDetail>arrayList = new ArrayList<>();
+        for(SurahDetail detail: list){
+            if(String.valueOf(detail.getId()).contains(id)){
+                arrayList.add(detail);
+            }
+        }
+        surahDetailAdapter.filter(arrayList);
     }
 }

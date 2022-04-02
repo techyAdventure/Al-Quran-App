@@ -6,14 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     >
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/surah"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/bg_">
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/search_main"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bg"
+            android:padding="12dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_search_24">
+
+        </EditText>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/surah"
+            android:layout_below="@+id/search_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

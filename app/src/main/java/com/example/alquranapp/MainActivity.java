@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import com.example.alquranapp.activities.SurahDetailsActivity;
 import com.example.alquranapp.adapter.SurahAdapter;
 import com.example.alquranapp.common.common;
 import com.example.alquranapp.listener.SurahListener;
 import com.example.alquranapp.model.Surah;
+import com.example.alquranapp.model.SurahDetail;
 import com.example.alquranapp.response.SurahResponse;
 import com.example.alquranapp.viewmodel.SurahViewModel;
 
@@ -27,13 +31,14 @@ public class MainActivity extends AppCompatActivity implements SurahListener {
     private List<Surah> list;
     private SurahViewModel surahViewModel;
     private SurahResponse surahResponse;
+    private EditText search_main;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        search_main = findViewById(R.id.search_main);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
 
@@ -69,6 +74,37 @@ public class MainActivity extends AppCompatActivity implements SurahListener {
             }
 
         });
+
+        search_main.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter_main(editable.toString());
+            }
+        });
+    }
+
+    private void filter_main(String id) {
+
+        ArrayList<Surah>arrayList = new ArrayList<>();
+        for(Surah detail: list){
+            if(String.valueOf(detail.getEnglishName()).contains(id)){
+                arrayList.add(detail);
+            }
+            if(String.valueOf(detail.getNumber()).contains(id)){
+                arrayList.add(detail);
+            }
+        }
+        surahAdapter.filter_main(arrayList);
     }
 
     @Override

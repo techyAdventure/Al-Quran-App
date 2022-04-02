@@ -6,19 +6,20 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="16dp"
     android:padding="16dp"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    >
 
     <LinearLayout
         android:padding="2dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/text_bg">
 
         <RelativeLayout
-            android:layout_width="70dp"
-            android:layout_height="55dp"
-            android:background="@drawable/bg"
-            >
+            android:layout_width="95dp"
+            android:layout_height="65dp"
+            android:background="@drawable/bg">
 
             <TextView
                 android:id="@+id/surah_number"
@@ -26,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="5dp"
-                android:text="1"
+                android:text="111"
+                android:textColor="@color/text_ash"
                 android:textSize="13sp"
                 android:textStyle="bold">
 
@@ -49,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="cursive"
                 android:text="Al-Fatiah"
-                android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:textSize="17sp"
                 android:textStyle="bold"></TextView>
 
             <TextView
@@ -59,7 +61,7 @@
                 android:id="@+id/total_ayat"
                 android:text="7 Ayah"
                 android:textSize="12sp"
-                android:textColor="@color/black">
+                android:textColor="@color/text_ash">
             </TextView>
 
         </LinearLayout>
@@ -67,10 +69,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:text="Al-Fatiah"
-            android:layout_margin="15sp"
+            android:textColor="@color/text_ash"
+            android:layout_margin="10sp"
             android:textAlignment="textEnd"
             android:id="@+id/arabic_name">
 

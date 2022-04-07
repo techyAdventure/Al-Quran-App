@@ -8,8 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="surah_name">#F3D16D</color>
-    <color name="surah_bg">#072437</color>
+    <color name="surah_bg">#020C2C</color>
     <color name="text_color">#fff</color>
     <color name="text_bg">#3A3934</color>
     <color name="text_ash">#C3B6A2</color>
+    <color name="text_ash_detail">#C3B6A2</color>
+    <color name="surah_detail_bg">#022040</color>
+
 </resources>

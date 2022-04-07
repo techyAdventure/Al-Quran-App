@@ -7,12 +7,12 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
-    >
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EFEFEF">
+        android:background="@color/surah_detail_bg">
 
         <LinearLayout
             android:padding="2dp"
@@ -33,6 +33,7 @@
                 android:layout_centerInParent="true"
                 android:padding="10dp"
                 android:text="1"
+                android:textColor="@color/text_ash_detail"
                 android:textAlignment="textEnd"
                 android:textSize="13sp"></TextView>
         </RelativeLayout>
@@ -57,6 +58,8 @@
                     android:justificationMode="inter_word"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:text="Auzubillah"
+                    android:textColor="@color/text_ash_detail"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
@@ -75,6 +78,7 @@
                         android:fontFamily="@font/cambo"
                         android:padding="10dp"
                         android:text="All is WELL"
+                        android:textColor="@color/text_ash_detail"
                         android:textIsSelectable="true"
                         android:textSize="14sp" />
 

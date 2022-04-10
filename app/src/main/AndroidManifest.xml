@@ -14,6 +14,9 @@
         android:theme="@style/Theme.AlQuranApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.DictionaryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SurahDetailsActivity"
             android:exported="false" />
         <activity

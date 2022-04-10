@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/surah_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:text="Definition"
+            android:textColor="@color/text_ash_detail">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:text="Definition"
+            android:id="@+id/text_def"
+            android:textColor="@color/text_ash_detail">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:text="Example"
+            android:id="@+id/text_example"
+            android:textColor="@color/text_ash_detail">
+
+        </TextView>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textAlignment="center"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="Synonyms"-->
+<!--            android:textColor="@color/text_ash_detail">-->
+
+<!--        </TextView>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="11sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="normal"-->
+<!--            android:textAlignment="center"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="Synonym"-->
+<!--            android:id="@+id/text_synonym"-->
+<!--            android:textColor="@color/text_ash_detail"-->
+<!--            android:scrollHorizontally="true"-->
+<!--            android:singleLine="true"-->
+<!--            android:ellipsize="marquee"-->
+<!--            android:marqueeRepeatLimit="marquee_forever">-->
+<!--        </TextView>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textAlignment="center"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="Antonyms"-->
+<!--            android:textColor="@color/text_ash_detail">-->
+
+<!--        </TextView>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="11sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textStyle="normal"-->
+<!--            android:scrollHorizontally="true"-->
+<!--            android:singleLine="true"-->
+<!--            android:ellipsize="marquee"-->
+<!--            android:marqueeRepeatLimit="marquee_forever"-->
+<!--            android:textAlignment="center"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="Synonym"-->
+<!--            android:id="@+id/text_antonym"-->
+<!--            android:textColor="@color/text_ash_detail">-->
+<!--        </TextView>-->
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

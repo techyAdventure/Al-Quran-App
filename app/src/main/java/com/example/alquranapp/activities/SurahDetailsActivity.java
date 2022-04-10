@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.alquranapp.MainActivity;
 import com.example.alquranapp.R;
 import com.example.alquranapp.adapter.SurahAdapter;
 import com.example.alquranapp.adapter.SurahDetailAdapter;
@@ -44,7 +46,7 @@ public class SurahDetailsActivity extends AppCompatActivity {
     private SurahDetailViewModel surahDetailViewModel;
     private String eng = "english_rwwad";
     private EditText search;
-    private ImageView settings;
+    private ImageView dict;
     private String qariAB = "abdul_basit_murattal";
     private String qr ;
     private String str;
@@ -69,6 +71,14 @@ public class SurahDetailsActivity extends AppCompatActivity {
                 getIntent().getIntExtra(common.SURAH_TOTAL_AYAH,0)+" Ayah");
 
         surahTranslation.setText(getIntent().getStringExtra(common.SURAH_TRANSLATION));
+
+        dict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SurahDetailsActivity.this, DictionaryActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         if(getSupportActionBar() != null){
@@ -111,7 +121,7 @@ public class SurahDetailsActivity extends AppCompatActivity {
         surahTranslation = findViewById(R.id.translation);
         recyclerView = findViewById(R.id.surah_detail_recyclerView);
         search = findViewById(R.id.search);
-        settings = findViewById(R.id.settings);
+        dict = findViewById(R.id.dict);
     }
 
     private void SurahTranslation(String lan, int id){

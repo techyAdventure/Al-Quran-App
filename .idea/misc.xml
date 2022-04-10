@@ -14,9 +14,13 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/seek_style.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/seekbar_progress.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/sheet_bg.xml" value="0.11" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_main.xml" value="0.13144329896907217" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_surah_details.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/definition_list.xml" value="0.14369256474519632" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/meaning_list.xml" value="0.10738255033557047" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/phoenetic_list.xml" value="0.14369256474519632" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_detail_layout.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_layout.xml" value="0.22743682310469315" />
       </map>

@@ -6,13 +6,17 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alquranapp.R;
 import com.example.alquranapp.adapter.MeaningAdapter;
 import com.example.alquranapp.adapter.PhoeneticsAdapter;
+import com.example.alquranapp.listener.NetworkChangedListener;
 import com.example.alquranapp.listener.OnFetchDataListener;
 import com.example.alquranapp.model.DictResponse;
 import com.example.alquranapp.network.RequestManager;
@@ -20,17 +24,21 @@ import com.example.alquranapp.network.RequestManager;
 public class DictionaryActivity extends AppCompatActivity {
 
     SearchView search;
-    TextView word;
+    TextView word,pg_text;
     RecyclerView recyclerView_ph, recyclerView_means;
     ProgressDialog progressDialog;
     PhoeneticsAdapter phoeneticsAdapter;
     MeaningAdapter meaningAdapter;
+    NetworkChangedListener networkChangedListener = new NetworkChangedListener();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dictionary);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
 
         search = findViewById(R.id.search_dict);
         word = findViewById(R.id.word);
@@ -38,8 +46,12 @@ public class DictionaryActivity extends AppCompatActivity {
         recyclerView_means = findViewById(R.id.recycler_means);
         progressDialog = new ProgressDialog(this);
 
-        progressDialog.setTitle("Loading...");
+        pg_text = findViewById(R.id.pg_text);
+
+        //progressDialog.setTitle("Loading...");
         progressDialog.show();
+        progressDialog.setContentView(R.layout.progress_dialog);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         RequestManager manager = new RequestManager(DictionaryActivity.this);
         manager.getWordMeanings(listener,"Knowledge");
 
@@ -90,9 +102,9 @@ public class DictionaryActivity extends AppCompatActivity {
 
     private void showData(DictResponse dictResponse) {
 
-        Toast.makeText(DictionaryActivity.this,"Show data found",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(DictionaryActivity.this,"Show data found",Toast.LENGTH_SHORT).show();
 
-        word.setText("Word: "+ dictResponse.getWord());
+        word.setText(dictResponse.getWord());
 
         recyclerView_ph.setHasFixedSize(true);
         recyclerView_ph.setLayoutManager(new GridLayoutManager(this,1));
@@ -104,4 +116,18 @@ public class DictionaryActivity extends AppCompatActivity {
         meaningAdapter = new MeaningAdapter(this, dictResponse.getMeanings());
         recyclerView_means.setAdapter(meaningAdapter);
     }
+    @Override
+    protected void onStart() {
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangedListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangedListener);
+        super.onStop();
+    }
+
 }

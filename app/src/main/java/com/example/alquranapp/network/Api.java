@@ -10,7 +10,7 @@ public class Api {
     public static Retrofit getRetrofit(){
         if(instance == null){
             instance = new Retrofit.Builder().
-                    baseUrl("http://api.alquran.cloud/v1/")
+                    baseUrl("https://api.alquran.cloud/v1/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

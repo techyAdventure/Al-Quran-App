@@ -1,4 +1,4 @@
-package com.example.alquranapp;
+package com.example.alquranapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -6,18 +6,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.EditText;
 
-import com.example.alquranapp.activities.SurahDetailsActivity;
+import com.example.alquranapp.R;
 import com.example.alquranapp.adapter.SurahAdapter;
 import com.example.alquranapp.common.common;
+import com.example.alquranapp.listener.NetworkChangedListener;
 import com.example.alquranapp.listener.SurahListener;
 import com.example.alquranapp.model.Surah;
-import com.example.alquranapp.model.SurahDetail;
 import com.example.alquranapp.response.SurahResponse;
 import com.example.alquranapp.viewmodel.SurahViewModel;
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SurahListener {
     private SurahViewModel surahViewModel;
     private SurahResponse surahResponse;
     private EditText search_main;
+    NetworkChangedListener networkChangedListener = new NetworkChangedListener();
 
 
     @Override
@@ -118,4 +121,20 @@ public class MainActivity extends AppCompatActivity implements SurahListener {
         startActivity(intent);
 
     }
+
+    @Override
+    protected void onStart() {
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangedListener,filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangedListener);
+        super.onStop();
+    }
+
+
 }

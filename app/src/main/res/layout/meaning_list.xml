@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
     android:layout_marginTop="8dp"
-    app:cardBackgroundColor="@color/surah_detail_bg">
+    app:cardBackgroundColor="@color/dict_bg_inside">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,3 +45,5 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+
+</ScrollView>

@@ -1,15 +1,17 @@
 package com.example.alquranapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -22,15 +24,12 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.alquranapp.MainActivity;
 import com.example.alquranapp.R;
-import com.example.alquranapp.adapter.SurahAdapter;
 import com.example.alquranapp.adapter.SurahDetailAdapter;
 import com.example.alquranapp.common.common;
-import com.example.alquranapp.model.Surah;
+import com.example.alquranapp.listener.NetworkChangedListener;
 import com.example.alquranapp.model.SurahDetail;
 import com.example.alquranapp.viewmodel.SurahDetailViewModel;
-import com.example.alquranapp.viewmodel.SurahViewModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,11 +49,14 @@ public class SurahDetailsActivity extends AppCompatActivity {
     private String qariAB = "abdul_basit_murattal";
     private String qr ;
     private String str;
+    ProgressDialog progressDialog;
     Handler handler = new Handler();
     SeekBar seekBar;
     TextView startTime, totalTime;
     ImageButton play;
     MediaPlayer mediaPlayer;
+    NetworkChangedListener networkChangedListener = new NetworkChangedListener();
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -63,6 +65,9 @@ public class SurahDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_surah_details);
 
         init();
+        progressDialog = new ProgressDialog(this);
+
+
 
         no = getIntent().getIntExtra(common.SURAH_NO,0);
         surahName.setText(getIntent().getStringExtra(common.SURAH_NAME));
@@ -129,9 +134,13 @@ public class SurahDetailsActivity extends AppCompatActivity {
         if(list.size() >0){
             list.clear();
         }
+        progressDialog.setTitle("Loading...");
+        progressDialog.show();
+
 
         surahDetailViewModel = new ViewModelProvider(this).get(SurahDetailViewModel.class);
-        surahDetailViewModel.getSurahDetail(lan,id).observe(this, surahDetailsResponse -> {
+        try{
+            surahDetailViewModel.getSurahDetail(lan,id).observe(this, surahDetailsResponse -> {
 
                 for(int i = 0; i<surahDetailsResponse.getList().size();i++){
                     list.add(new SurahDetail(
@@ -147,13 +156,19 @@ public class SurahDetailsActivity extends AppCompatActivity {
 
 
 
-            if(list.size() != 0){
-                surahDetailAdapter = new SurahDetailAdapter(this, list);
-                recyclerView.setAdapter(surahDetailAdapter);
+                if(list.size() != 0){
+                    surahDetailAdapter = new SurahDetailAdapter(this, list);
+                    recyclerView.setAdapter(surahDetailAdapter);
 
-            }
+                }
 
-        });
+            });
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        progressDialog.dismiss();
 
 
     }
@@ -166,7 +181,9 @@ public class SurahDetailsActivity extends AppCompatActivity {
                 arrayList.add(detail);
             }
         }
+
         surahDetailAdapter.filter(arrayList);
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -295,33 +312,39 @@ public class SurahDetailsActivity extends AppCompatActivity {
 
     }
 
+//    @Override
+//    protected void onDestroy() {
+//        if(mediaPlayer.isPlaying()){
+//            handler.removeCallbacks(updater);
+//            mediaPlayer.pause();
+//            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+//        }
+//        super.onDestroy();
+//    }
+//
+//
+//
+//    @Override
+//    protected void onPause() {
+//        if(mediaPlayer.isPlaying()){
+//            handler.removeCallbacks(updater);
+//            mediaPlayer.pause();
+//            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+//        }
+//        super.onPause();
+//    }
+
     @Override
-    protected void onDestroy() {
-        if(mediaPlayer.isPlaying()){
-            handler.removeCallbacks(updater);
-            mediaPlayer.pause();
-            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
-        }
-        super.onDestroy();
+    protected void onStart() {
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangedListener,filter);
+        super.onStart();
     }
 
     @Override
     protected void onStop() {
-        if(mediaPlayer.isPlaying()){
-            handler.removeCallbacks(updater);
-            mediaPlayer.pause();
-            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
-        }
+        unregisterReceiver(networkChangedListener);
         super.onStop();
-    }
-
-    @Override
-    protected void onPause() {
-        if(mediaPlayer.isPlaying()){
-            handler.removeCallbacks(updater);
-            mediaPlayer.pause();
-            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
-        }
-        super.onPause();
     }
 }

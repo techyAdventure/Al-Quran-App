@@ -7,7 +7,7 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/surah_bg">
+    app:cardBackgroundColor="@color/text_ash_detail">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,35 +23,36 @@
             android:textAlignment="center"
             android:padding="8dp"
             android:text="Definition"
-            android:textColor="@color/text_ash_detail">
+            android:textColor="@color/dict_bg_inside_">
 
         </TextView>
 
         <TextView
+            android:id="@+id/text_def"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:fontFamily="@font/alegreya_sans"
             android:padding="8dp"
             android:text="Definition"
-            android:id="@+id/text_def"
-            android:textColor="@color/text_ash_detail">
+            android:textAlignment="center"
+            android:textColor="@color/dict_bg_inside"
+            android:textSize="16sp"
+            android:textStyle="bold">
 
         </TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_weight="1"
             android:textStyle="italic"
             android:textAlignment="center"
             android:padding="8dp"
             android:text="Example"
             android:id="@+id/text_example"
-            android:textColor="@color/text_ash_detail">
+            android:textColor="@color/dict_bg_inside_">
 
         </TextView>
 <!--        <TextView-->

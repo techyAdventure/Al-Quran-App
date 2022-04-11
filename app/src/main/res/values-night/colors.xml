@@ -12,6 +12,9 @@
     <color name="text_color">#fff</color>
     <color name="text_bg">#3A3934</color>
     <color name="text_ash">#C3B6A2</color>
+    <color name="dict_bg">#45423E</color>
+    <color name="dict_bg_inside">#3E3B36</color>
+    <color name="dict_bg_inside_">#33312D</color>
     <color name="text_ash_detail">#C3B6A2</color>
     <color name="surah_detail_bg">#022040</color>
 

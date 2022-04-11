@@ -4,24 +4,30 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/bg_circle.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/bg_pg.xml" value="0.117" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/border_shadow.xml" value="0.238" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_baseline_collections_bookmark_24.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.121" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_baseline_pause_circle_filled_24.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_search_24.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_settings.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/ic_twotone_book_24.xml" value="0.121" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/search_bg.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/seek.xml" value="0.266" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/seek_style.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/seekbar_progress.xml" value="0.238" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/drawable/sheet_bg.xml" value="0.11" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_dictionary.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_dictionary.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_main.xml" value="0.13144329896907217" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_surah_details.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/activity_surah_details.xml" value="0.2798913043478261" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.14074074074074075" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/definition_list.xml" value="0.14369256474519632" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/check_internet.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/definition_list.xml" value="0.2798913043478261" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/meaning_list.xml" value="0.10738255033557047" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/phoenetic_list.xml" value="0.14369256474519632" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_detail_layout.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/progress_dialog.xml" value="0.19017094017094016" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_detail_layout.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AlQuranApp/app/src/main/res/layout/surah_layout.xml" value="0.22743682310469315" />
       </map>
     </option>

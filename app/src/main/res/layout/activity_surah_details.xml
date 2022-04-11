@@ -88,13 +88,14 @@
             android:drawableStart="@drawable/ic_search_24">
 
         </EditText>
+
         <ImageButton
             android:id="@+id/dict"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@null"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/ic_settings">
+            android:background="@null"
+            android:src="@drawable/ic_baseline_collections_bookmark_24">
 
         </ImageButton>
 

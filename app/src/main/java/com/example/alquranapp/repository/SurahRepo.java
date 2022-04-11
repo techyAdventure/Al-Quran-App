@@ -37,7 +37,9 @@ public class SurahRepo {
             @Override
             public void onFailure(Call<SurahResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
-                data.setValue(new SurahResponse());
+                //data.setValue(new SurahResponse());
+                data.setValue(null);
+
             }
         });
         return data;

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codesgood.views.JustifiedTextView;
 import com.example.alquranapp.R;
 import com.example.alquranapp.listener.SurahListener;
 import com.example.alquranapp.model.Definitions;

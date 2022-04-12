@@ -312,27 +312,27 @@ public class SurahDetailsActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onDestroy() {
-//        if(mediaPlayer.isPlaying()){
-//            handler.removeCallbacks(updater);
-//            mediaPlayer.pause();
-//            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
-//        }
-//        super.onDestroy();
-//    }
-//
-//
-//
-//    @Override
-//    protected void onPause() {
-//        if(mediaPlayer.isPlaying()){
-//            handler.removeCallbacks(updater);
-//            mediaPlayer.pause();
-//            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
-//        }
-//        super.onPause();
-//    }
+    @Override
+    protected void onDestroy() {
+        if(mediaPlayer.isPlaying()){
+            handler.removeCallbacks(updater);
+            mediaPlayer.pause();
+            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+        }
+        super.onDestroy();
+    }
+
+
+
+    @Override
+    protected void onPause() {
+        if(mediaPlayer.isPlaying()){
+            handler.removeCallbacks(updater);
+            mediaPlayer.pause();
+            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+        }
+        super.onPause();
+    }
 
     @Override
     protected void onStart() {
@@ -345,6 +345,11 @@ public class SurahDetailsActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         unregisterReceiver(networkChangedListener);
+        if(mediaPlayer.isPlaying()){
+            handler.removeCallbacks(updater);
+            mediaPlayer.pause();
+            play.setImageResource(R.drawable.ic_baseline_play_circle_filled_24);
+        }
         super.onStop();
     }
 }
